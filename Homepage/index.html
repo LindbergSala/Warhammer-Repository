@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Warhammer Hobby Central</title>
+    <meta
+      name="description"
+      content="En lätt och smidig hobbycentral för Warhammer-projekt, arméer, målning och berättelser."
+    />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <script src="../assets/js/main.js" defer></script>
+  </head>
+  <body class="home-page">
+    <a class="skip-link" href="#main">Hoppa till innehåll</a>
+
+    <header class="site-header" aria-label="Sidhuvud">
+      <a class="brand" href="./" aria-label="Warhammer Hobby Central hem">
+        <span class="brand__mark" aria-hidden="true">HC</span>
+        <span>Hobby Central</span>
+      </a>
+      <nav class="top-nav" aria-label="Huvudnavigation">
+        <a href="#systems">Världar</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="home-title">
+        <div class="hero__media" aria-hidden="true"></div>
+        <div class="hero__content">
+          <p class="kicker">Bygg, måla, spela</p>
+          <h1 id="home-title">Warhammer Hobby Central</h1>
+          <p>
+            Samla era arméer, projektloggar, lore och målning på en snabb,
+            enkel och mobilvänlig plats.
+          </p>
+          <a class="primary-action" href="#systems">Välj värld</a>
+        </div>
+      </section>
+
+      <section class="system-section" id="systems" aria-labelledby="systems-title">
+        <div class="section-heading">
+          <p class="kicker">Fyra ingångar</p>
+          <h2 id="systems-title">Välj projektvärld</h2>
+        </div>
+
+        <div class="system-grid">
+          <a class="system-card card-40k" href="../pages/warhammer-40000.html" data-card>
+            <span class="system-card__eyebrow">01</span>
+            <span class="system-card__glyph" aria-hidden="true">40K</span>
+            <h3>Warhammer 40.000</h3>
+            <p>Arméer, Crusade, målning och mörk sci-fi-lore.</p>
+            <span class="system-card__footer">Öppna sida</span>
+          </a>
+
+          <a class="system-card card-aos" href="../pages/age-of-sigmar.html" data-card>
+            <span class="system-card__eyebrow">02</span>
+            <span class="system-card__glyph" aria-hidden="true">AoS</span>
+            <h3>Warhammer Age of Sigmar</h3>
+            <p>Riken, kampanjer, hjältar och målningsplaner.</p>
+            <span class="system-card__footer">Öppna sida</span>
+          </a>
+
+          <a class="system-card card-heresy" href="../pages/horus-heresy.html" data-card>
+            <span class="system-card__eyebrow">03</span>
+            <span class="system-card__glyph" aria-hidden="true">HH</span>
+            <h3>Warhammer Horus Heresy</h3>
+            <p>Legioner, kampanjloggar och berättelser från inbördeskriget.</p>
+            <span class="system-card__footer">Öppna sida</span>
+          </a>
+
+          <a class="system-card card-old-world" href="../pages/the-old-world.html" data-card>
+            <span class="system-card__eyebrow">04</span>
+            <span class="system-card__glyph" aria-hidden="true">OW</span>
+            <h3>Warhammer The Old World</h3>
+            <p>Klassiska arméer, kartor, heraldik och slagfält.</p>
+            <span class="system-card__footer">Öppna sida</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Hobby Central <span data-year></span></p>
+    </footer>
+  </body>
+</html>
