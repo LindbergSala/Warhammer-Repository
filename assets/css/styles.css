@@ -1,18 +1,19 @@
 :root {
-  --bg: #0f0d0b;
-  --bg-soft: #17130f;
-  --surface: #1d1a16;
-  --surface-strong: #29241e;
-  --text: #f5efe4;
-  --muted: #c9beaa;
-  --line: rgba(245, 239, 228, 0.16);
-  --shadow: 0 18px 50px rgba(0, 0, 0, 0.34);
-  --red: #b33b32;
-  --gold: #d2a64e;
-  --green: #6f8b4e;
-  --steel: #6f8a91;
-  --violet: #7b5e80;
-  --bone: #e8dcc4;
+  --bg: #050505;
+  --bg-soft: #0f0d0d;
+  --surface: #171514;
+  --surface-strong: #24201e;
+  --text: #f2eee7;
+  --muted: #bdb4aa;
+  --line: rgba(232, 224, 214, 0.17);
+  --shadow: 0 18px 52px rgba(0, 0, 0, 0.48);
+  --blood: #8e1718;
+  --blood-bright: #c83a32;
+  --silver: #d7d0c4;
+  --iron: #78716b;
+  --ember: #4b0c0d;
+  --bone: #e8dfd2;
+  --accent: var(--blood-bright);
   --radius: 8px;
 }
 
@@ -38,8 +39,8 @@ body {
 }
 
 body::selection {
-  background: var(--gold);
-  color: #16120e;
+  background: var(--blood-bright);
+  color: var(--text);
 }
 
 a {
@@ -62,7 +63,7 @@ h3 {
   transform: translateY(-160%);
   border-radius: var(--radius);
   background: var(--bone);
-  color: #15110d;
+  color: #111;
   padding: 0.65rem 0.9rem;
   font-weight: 700;
 }
@@ -84,7 +85,7 @@ h3 {
   min-height: 64px;
   padding: 0.75rem 1rem;
   border-bottom: 1px solid var(--line);
-  background: rgba(15, 13, 11, 0.9);
+  background: rgba(5, 5, 5, 0.9);
   backdrop-filter: blur(16px);
 }
 
@@ -105,15 +106,24 @@ h3 {
 
 .brand__mark {
   display: inline-grid;
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 2.55rem;
+  height: 2.55rem;
   flex: 0 0 auto;
   place-items: center;
-  border: 1px solid rgba(210, 166, 78, 0.65);
+  overflow: hidden;
+  border: 1px solid rgba(215, 208, 196, 0.44);
   border-radius: var(--radius);
-  background: #2d2116;
-  color: var(--gold);
+  background: #050505;
+  box-shadow:
+    0 0 0 1px rgba(142, 23, 24, 0.28),
+    0 10px 24px rgba(0, 0, 0, 0.38);
   font-size: 0.8rem;
+}
+
+.brand__mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .top-nav {
@@ -145,7 +155,7 @@ h3 {
 .top-nav a:focus-visible,
 .top-nav a[aria-current="page"] {
   border-color: var(--line);
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(200, 58, 50, 0.12);
   color: var(--text);
 }
 
@@ -156,6 +166,10 @@ h3 {
 }
 
 .home-page .top-nav {
+  display: none;
+}
+
+.detail-page .brand > span:last-child {
   display: none;
 }
 
@@ -172,11 +186,21 @@ h3 {
   inset: 0;
   z-index: -2;
   background:
-    linear-gradient(90deg, rgba(10, 8, 6, 0.92), rgba(10, 8, 6, 0.56) 56%, rgba(10, 8, 6, 0.18)),
-    linear-gradient(0deg, rgba(15, 13, 11, 0.98), rgba(15, 13, 11, 0.08) 42%),
-    url("../images/hobby-hub-hero.png");
-  background-position: center;
-  background-size: cover;
+    linear-gradient(90deg, rgba(5, 5, 5, 0.97), rgba(5, 5, 5, 0.75) 52%, rgba(5, 5, 5, 0.3)),
+    linear-gradient(0deg, rgba(5, 5, 5, 1), rgba(5, 5, 5, 0.18) 54%),
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 16px),
+    url("../images/Main_Emblem.png");
+  background-position:
+    center,
+    center,
+    center,
+    center 12%;
+  background-repeat: repeat, repeat, repeat, no-repeat;
+  background-size:
+    cover,
+    cover,
+    auto,
+    min(112vw, 650px) auto;
 }
 
 .hero__content {
@@ -188,7 +212,7 @@ h3 {
 }
 
 .kicker {
-  color: var(--gold);
+  color: var(--blood-bright);
   font-size: 0.78rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -197,8 +221,9 @@ h3 {
 .hero h1,
 .page-hero h1 {
   max-width: 12ch;
-  font-size: 2.85rem;
+  font-size: 2.65rem;
   line-height: 0.98;
+  overflow-wrap: anywhere;
 }
 
 .hero p:not(.kicker),
@@ -216,8 +241,8 @@ h3 {
   min-height: 46px;
   border: 1px solid rgba(232, 220, 196, 0.34);
   border-radius: var(--radius);
-  background: var(--gold);
-  color: #15110d;
+  background: var(--silver);
+  color: #111;
   padding: 0.75rem 1rem;
   font-weight: 900;
   box-shadow: var(--shadow);
@@ -225,13 +250,13 @@ h3 {
 
 .primary-action:hover,
 .primary-action:focus-visible {
-  background: #e4bd68;
+  background: #ffffff;
 }
 
 .system-section {
   padding: 2.5rem 1rem 3rem;
   background:
-    linear-gradient(180deg, var(--bg), var(--bg-soft)),
+    linear-gradient(180deg, var(--bg), var(--bg-soft) 74%, #120708),
     var(--bg);
 }
 
@@ -254,8 +279,8 @@ h3 {
 }
 
 .system-card {
-  --accent: var(--gold);
-  --accent-soft: rgba(210, 166, 78, 0.16);
+  --accent: var(--silver);
+  --accent-soft: rgba(215, 208, 196, 0.12);
   position: relative;
   display: grid;
   min-height: 210px;
@@ -264,6 +289,7 @@ h3 {
   border-radius: var(--radius);
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.06), transparent 42%),
+    linear-gradient(90deg, rgba(142, 23, 24, 0.14), transparent 38%, rgba(215, 208, 196, 0.08)),
     linear-gradient(180deg, var(--accent-soft), rgba(255, 255, 255, 0.03)),
     var(--surface);
   padding: 1rem;
@@ -313,7 +339,7 @@ h3 {
 }
 
 .system-card__eyebrow {
-  color: color-mix(in srgb, var(--accent) 72%, white);
+  color: color-mix(in srgb, var(--accent) 78%, white);
   font-size: 0.78rem;
   font-weight: 900;
 }
@@ -351,23 +377,23 @@ h3 {
 }
 
 .card-40k {
-  --accent: var(--red);
-  --accent-soft: rgba(179, 59, 50, 0.18);
+  --accent: var(--blood-bright);
+  --accent-soft: rgba(200, 58, 50, 0.18);
 }
 
 .card-aos {
-  --accent: var(--green);
-  --accent-soft: rgba(111, 139, 78, 0.18);
+  --accent: var(--silver);
+  --accent-soft: rgba(215, 208, 196, 0.14);
 }
 
 .card-heresy {
-  --accent: var(--steel);
-  --accent-soft: rgba(111, 138, 145, 0.18);
+  --accent: var(--iron);
+  --accent-soft: rgba(120, 113, 107, 0.2);
 }
 
 .card-old-world {
-  --accent: var(--gold);
-  --accent-soft: rgba(210, 166, 78, 0.18);
+  --accent: var(--bone);
+  --accent-soft: rgba(232, 223, 210, 0.14);
 }
 
 .site-footer {
@@ -390,27 +416,34 @@ h3 {
   padding: 4rem 1rem 2.25rem;
   border-bottom: 1px solid var(--line);
   background:
-    linear-gradient(90deg, rgba(12, 10, 8, 0.94), rgba(12, 10, 8, 0.68), rgba(12, 10, 8, 0.3)),
-    linear-gradient(0deg, rgba(15, 13, 11, 1), rgba(15, 13, 11, 0.1) 44%),
-    url("../images/hobby-hub-hero.png");
-  background-position: center;
-  background-size: cover;
+    linear-gradient(90deg, rgba(5, 5, 5, 0.96), rgba(5, 5, 5, 0.74), rgba(5, 5, 5, 0.32)),
+    linear-gradient(0deg, rgba(5, 5, 5, 1), rgba(5, 5, 5, 0.14) 44%),
+    url("../images/Main_Emblem.png");
+  background-position:
+    center,
+    center,
+    right 38%;
+  background-repeat: repeat, repeat, no-repeat;
+  background-size:
+    cover,
+    cover,
+    min(98vw, 620px) auto;
 }
 
 .page-40k {
-  --page-accent: var(--red);
+  --page-accent: var(--blood-bright);
 }
 
 .page-aos {
-  --page-accent: var(--green);
+  --page-accent: var(--silver);
 }
 
 .page-heresy {
-  --page-accent: var(--steel);
+  --page-accent: var(--iron);
 }
 
 .page-old-world {
-  --page-accent: var(--gold);
+  --page-accent: var(--bone);
 }
 
 .detail-page .kicker {
@@ -431,6 +464,7 @@ h3 {
   border-radius: var(--radius);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.055), transparent),
+    linear-gradient(90deg, rgba(142, 23, 24, 0.11), transparent 48%),
     var(--surface);
   padding: 1rem;
 }
@@ -463,12 +497,12 @@ h3 {
 }
 
 .redirect-box a {
-  color: var(--gold);
+  color: var(--blood-bright);
   font-weight: 800;
 }
 
 :focus-visible {
-  outline: 3px solid rgba(210, 166, 78, 0.75);
+  outline: 3px solid rgba(200, 58, 50, 0.78);
   outline-offset: 3px;
 }
 
@@ -487,6 +521,10 @@ h3 {
     display: flex;
   }
 
+  .detail-page .brand > span:last-child {
+    display: inline;
+  }
+
   .site-header {
     padding-inline: 1.5rem;
   }
@@ -497,7 +535,7 @@ h3 {
 
   .hero h1,
   .page-hero h1 {
-    font-size: 4rem;
+    font-size: 3.85rem;
   }
 
   .system-section,
@@ -530,7 +568,20 @@ h3 {
 
   .hero h1,
   .page-hero h1 {
-    font-size: 5rem;
+    font-size: 4.8rem;
+  }
+
+  .hero__media {
+    background-position:
+      center,
+      center,
+      center,
+      right 46%;
+    background-size:
+      cover,
+      cover,
+      auto,
+      min(58vw, 860px) auto;
   }
 
   .system-section {
