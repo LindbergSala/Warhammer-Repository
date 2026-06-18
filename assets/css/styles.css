@@ -95,13 +95,16 @@ h3 {
   flex: 0 1 auto;
   gap: 0.65rem;
   min-width: 0;
+  max-width: calc(100% - 3.5rem);
   font-weight: 800;
 }
 
 .brand > span:last-child {
+  display: none;
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .brand__mark {
@@ -126,15 +129,78 @@ h3 {
   object-fit: cover;
 }
 
+.menu-toggle {
+  position: fixed;
+  left: calc(100vw - 3.55rem);
+  right: auto;
+  top: 0.75rem;
+  z-index: 30;
+  display: inline-grid;
+  width: 2.55rem;
+  height: 2.55rem;
+  flex: 0 0 auto;
+  place-items: center;
+  gap: 0.22rem;
+  appearance: none;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(145deg, rgba(200, 58, 50, 0.22), rgba(255, 255, 255, 0.05)),
+    rgba(10, 9, 9, 0.96);
+  color: var(--text);
+  cursor: pointer;
+  padding: 0;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.34);
+}
+
+.menu-toggle span {
+  display: block;
+  width: 1.05rem;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
+}
+
+.site-header.is-menu-open .menu-toggle span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.site-header.is-menu-open .menu-toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+.site-header.is-menu-open .menu-toggle span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
 .top-nav {
-  display: flex;
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 1rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
-  flex: 0 1 auto;
+  justify-content: flex-start;
+  flex: 1 1 auto;
   gap: 0.35rem;
   min-width: 0;
-  overflow-x: auto;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(145deg, rgba(142, 23, 24, 0.18), rgba(255, 255, 255, 0.04)),
+    rgba(8, 7, 7, 0.98);
+  padding: 0.6rem;
+  box-shadow: var(--shadow);
   scrollbar-width: none;
+}
+
+.site-header.is-menu-open .top-nav {
+  display: flex;
 }
 
 .top-nav::-webkit-scrollbar {
@@ -142,6 +208,7 @@ h3 {
 }
 
 .top-nav a {
+  width: 100%;
   flex: 0 0 auto;
   border: 1px solid transparent;
   border-radius: var(--radius);
@@ -162,15 +229,7 @@ h3 {
 .top-nav--wide {
   flex: 1 1 auto;
   justify-content: flex-start;
-  max-width: 62vw;
-}
-
-.home-page .top-nav {
-  display: none;
-}
-
-.detail-page .brand > span:last-child {
-  display: none;
+  max-width: none;
 }
 
 .hero {
@@ -231,26 +290,6 @@ h3 {
   max-width: 38rem;
   color: var(--muted);
   font-size: 1.05rem;
-}
-
-.primary-action {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: fit-content;
-  min-height: 46px;
-  border: 1px solid rgba(232, 220, 196, 0.34);
-  border-radius: var(--radius);
-  background: var(--silver);
-  color: #111;
-  padding: 0.75rem 1rem;
-  font-weight: 900;
-  box-shadow: var(--shadow);
-}
-
-.primary-action:hover,
-.primary-action:focus-visible {
-  background: #ffffff;
 }
 
 .system-section {
@@ -517,11 +556,36 @@ h3 {
 }
 
 @media (min-width: 720px) {
-  .home-page .top-nav {
-    display: flex;
+  .menu-toggle {
+    display: none;
   }
 
-  .detail-page .brand > span:last-child {
+  .top-nav {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 0 1 auto;
+    gap: 0.35rem;
+    overflow-x: auto;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .top-nav a {
+    width: auto;
+  }
+
+  .top-nav--wide {
+    flex: 1 1 auto;
+    justify-content: flex-start;
+    max-width: 62vw;
+  }
+
+  .brand > span:last-child {
     display: inline;
   }
 
